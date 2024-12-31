@@ -68,6 +68,20 @@ with the following value:
 YOUR_TOKEN
 ```
 
+Copie seu token
+
+### 6 - Registro.BR
+
+Essa etapa pode demorar um pouco para funcionar
+
+Siga o vídeo usando o painel a baixo do registro.br
+
+![Painel](../images/input-text-painel.png)
+
+### 7 - Acesse onde o NGINX tem seu Arquivos de Configurações
+
+Procure o arquivo de configurações que tem a chave `server`
+
 ## Referências
 
 [COMO INSTALAR UM CERTIFICADO SSL WILDCARD GRÁTIS COM NGINX E LET'S ENCRYPT | COFFOPS](https://www.youtube.com/watch?v=NUIh3zsRwAI)
