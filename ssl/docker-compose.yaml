@@ -1,0 +1,15 @@
+services:
+  web-server:
+    container_name: web-server
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    ports:
+       - "80:80" #porta para servidor
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/sites-available:/etc/nginx/sites-available
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/letsencrypt:/etc/letsencrypt
+      - ./dist:/usr/share/nginx/html
+    restart: always
