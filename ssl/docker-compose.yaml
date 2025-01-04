@@ -12,5 +12,5 @@ services:
       - ./nginx/sites-available:/etc/nginx/sites-available
       - ./nginx/conf.d:/etc/nginx/conf.d
       - ./nginx/letsencrypt:/etc/letsencrypt
-      - ./dist:/usr/share/nginx/html
+      - ./dist:/var/www/public
     restart: always
