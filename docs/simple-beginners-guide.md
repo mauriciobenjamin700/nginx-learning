@@ -80,19 +80,19 @@ O `nginx` usa dois tipos de diretivas para suas configurações
 
 ## Configurando O Ambiente do NGINX para Servir Várias Aplicações
 
-Ao lado dos seus arquivos de configuração no diretório `/etc/nginx` iremos criar a pasta `data` e dentro dela duas pastas: `web1` e `web2`. Ao final teremos
+Ao lado dos seus arquivos de configuração no diretório `/etc/nginx` iremos criar a pasta `www` e dentro dela duas pastas: `web1` e `web2`. Ao final teremos
 
 ```bash
 conf.d/
-data/
-    web1/
-    web2/
 fastcgi_params
 mime.types
 modules
 nginx.conf
 scgi_params
 uwsgi_params
+www/
+    web1/
+    web2/
 ```
 
 Agora adicione um arquivo `index.html` tanto em `web1` quanto em `web2`
@@ -107,10 +107,75 @@ exemplo de conteúdo para os arquivos html
 <h1>Web 2</h1>
 ```
 
-Com os arquivos html prontos, vamos configurar o arquivo `nginx.conf`
+Com os arquivos html prontos, vamos configurar o arquivo `nginx.conf`, lembrando que todos os arquivos que configuramos estão em /etc/nginx/
+
+Obs:
+
+- *events* : Eventos que o nginx esta pronto para monitorar
+- *worker_connections*: Número máximo de processos em paralelo acontecendo
+- *http* : Protocolo Usado para as Requisições
+- *server*: Configurando um "sub-servidor" dentro do nginx para cuidar de ações específicas
+- *root* : Pega o conteúdo passado a frente de location e concatena como valor passado em root. Exemplo: `/etc/nginx/www/web1/`
+- *index* : Define o arquivo dentro do caminho escolhido que será lido, caso nenhum nome de arquivo seja especificado na url. Exemplo: `/etc/nginx/www/web1/index.html
+- *location* : URL passada pelo usuário ao fazer a requisição. Exemplo: `http://localhost:8080/web1/`
+- *try_files* : Tenta executar em ordem, as possibilidades. Neste Caso tenta acessar a url de web1, caso não consiga, tenta acessar a url de web1/index.html
 
 ```nginx
-http
+events {
+    worker_connections 1024;
+}
+
+http {
+    server {
+        listen 80;
+
+        location / {
+            root /etc/nginx/www;
+            index index.html;
+        }
+
+        location /web1 {
+            root /etc/nginx/www;
+            index index.html;
+            try_files $uri /web1/index.html;
+        }
+
+        location /web2 {
+            root /etc/nginx/www;
+            index index.html;
+            try_files $uri /web2/index.html;
+        }
+    }
+}
+```
+
+Se sempre usamos o mesmo root, podemos definilo dentro bloco server, para evitar repeticoes
+
+```nginx
+events {
+    worker_connections 1024;
+}
+
+http {
+    server {
+        listen 80;
+        root /etc/nginx/www;
+
+        location / {
+            index index.html;
+        }
+
+        location /web1 {
+            index index.html;
+            try_files $uri /web1/index.html;
+        }
+
+        location /web2 {
+            index index.html;
+            try_files $uri /web2/index.html;
+        }
+    }
+}
 ```
 
 ## Referências
