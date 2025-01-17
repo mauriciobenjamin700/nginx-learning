@@ -1,5 +1,11 @@
 # Aprendendo Sobre NGINX
 
+O `nginx` é um servidor web com suporte a balanço de carga e proxy/proxy-reverso extremamente útil e usado no mercado.
+
+Este repositório busca juntar informações em português de maneira simplificada para te ajudar a aprender mais sobre o `nginx`.
+
+As seções a baixo irão fornecer suporte com relação a materiais adicionais.
+
 ## Materiais Adicionais
 
 - [Configurando um Servidor Nginx para Servir Localmente Sua Aplicação HTML, CSS e JS](./docs/custom-live-server.md)

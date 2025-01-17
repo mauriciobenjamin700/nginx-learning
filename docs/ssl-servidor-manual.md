@@ -46,9 +46,11 @@ Insira seu e-mail e pressione enter
 
 Você irá visualizar a seguinte mensagem no terminal
 
+```bash
 Please read the Terms of Service at
 https://letsencrypt.org/documents/LE-SA-v1.4-April-3-2024.pdf. You must agree in
 order to register with the ACME server. Do you agree?
+```
 
 Basta confirmar os termos digitando `y` e pressionando enter
 
