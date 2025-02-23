@@ -111,6 +111,16 @@ Caso o resultado seja o esperado, ative o Host Virtual no seu Servidor usando
 sudo ln -s /etc/nginx/sites-available/SEU_DOMÍNIO.conf /etc/nginx/sites-enabled/
 ```
 
+Por que isso é necessário?
+
+O Nginx usa uma estrutura de diretórios dividida em sites-available e sites-enabled para facilitar o gerenciamento de configurações:
+
+sites-available: Armazena todas as configurações de sites que você pode ativar ou desativar.
+
+sites-enabled: Contém apenas os links simbólicos para as configurações que você deseja ativar.
+
+Ao criar um link simbólico, você mantém o arquivo original no sites-available (para fácil organização e backup) e ativa a configuração no sites-enabled sem duplicar o arquivo.
+
 ## Passo 4: Adicionando os Arquivos de Configuração do seu Site na Pasta Gerenciada pelo NGINX
 
 Digamos que seu projeto tem a seguinte estrutura
