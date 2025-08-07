@@ -92,6 +92,7 @@ server {
 
 3. **Reinicie o Nginx**:
    - Após salvar as alterações, reinicie o Nginx para aplicar as mudanças:
+
      ```bash
      sudo systemctl restart nginx
      ```
@@ -105,6 +106,7 @@ server {
 ## **Considerações Adicionais**
 
 ### **1. Permissões de Arquivos**
+
 Certifique-se de que o Nginx tem permissão para ler os arquivos no diretório raiz da aplicação. Use os seguintes comandos para ajustar as permissões:
 
 ```bash
@@ -113,6 +115,7 @@ sudo chmod -R 755 /var/www/seusite.com
 ```
 
 ### **2. Build da Aplicação React**
+
 Antes de hospedar a aplicação, certifique-se de que o build foi gerado corretamente:
 
 ```bash
@@ -124,6 +127,7 @@ yarn build
 Os arquivos gerados devem ser colocados no diretório raiz configurado no Nginx (por exemplo, `/var/www/seusite.com`).
 
 ### **3. Verificação de Logs**
+
 Se o problema persistir, verifique os logs do Nginx para obter mais detalhes:
 
 ```bash
@@ -136,9 +140,7 @@ sudo tail -f /var/log/nginx/error.log
 
 Com a configuração correta do Nginx, você pode garantir que sua aplicação React com React Router funcione perfeitamente, mesmo ao atualizar a página ou acessar rotas diretamente. A chave é redirecionar todas as requisições para o `index.html`, permitindo que o React Router assuma o controle da navegação no lado do cliente.
 
-Se você seguir este guia, seu problema deve ser resolvido. Caso precise de mais ajuda, consulte a [documentação oficial do Nginx](https://nginx.org/en/docs/) ou deixe um comentário abaixo! 😊
-
---- 
+Se você seguir este guia, seu problema deve ser resolvido. Caso precise de mais ajuda, consulte a [documentação oficial do Nginx](https://nginx.org/en/docs/) ou deixe um comentário abaixo!
 
 **Exemplo de Markdown:**
 
@@ -176,8 +178,3 @@ server {
     }
 }
 ```
-
-### **Explicação da Configuração**
-
-1. **`root /var/www/seusite.com;`**:
-   - Define o diretório raiz onde os arqu
