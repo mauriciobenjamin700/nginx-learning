@@ -11,7 +11,7 @@ As seções a baixo irão fornecer suporte com relação a materiais adicionais.
 - [Configurando um Servidor Nginx para Servir Localmente Sua Aplicação HTML, CSS e JS](./docs/custom-live-server.md)
 - [Configurando NGINX com Docker para Servir uma Aplicação Web com Certificado SSL](./ssl/)
 - [Configurando Servidor NGINX para Fornecer Certificado SSL para Todas as Aplicações Rodando na Maquina de Forma Gratuita](./docs/ssl-servidor-manual.md)
-- [Configurando servidor NGINX para servir duas aplicações web ao mesmo tempo](./docs/many-sites-with-nginx.md)
+- [Configurando servidor NGINX na maquina servidor para servir duas aplicações web ao mesmo tempo](./docs/many-sites-with-nginx.md)
 
 ## Documentação Oficial
 
