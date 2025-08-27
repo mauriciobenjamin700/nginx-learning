@@ -653,3 +653,7 @@ sudo grep "upstream" /var/log/nginx/error.log
 5. Automatizar **deploys** e **backups**
 
 Para documentação oficial, visite: [nginx.org/en/docs/](https://nginx.org/en/docs/)
+
+## OBS
+
+EVITE USAR CERBOT COM IPV6, PARA NÃO QUEBRAR A CABEÇA!!!
