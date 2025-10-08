@@ -416,6 +416,17 @@ server {
 }
 ```
 
+Acesso o painel da sua conta no registro BR e adicione os nomes e dados do seu servidor.
+
+Ex:
+
+| Tipo | Nome                   | Dados     |
+|------|------------------------|-----------|
+| A    | meudominio.com.br      | 10.0.0.1  |
+| A    | www.meudominio.com.br  | 10.0.0.2  |
+
+![Painel](../images/dns-configs-to-ssl-with-www.png)
+
 ### 3. Balanceamento de Carga
 
 ```nginx

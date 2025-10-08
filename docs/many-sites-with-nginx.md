@@ -150,7 +150,7 @@ sudo systemctl restart nginx
 Ao fazer uma requisição HTTP para a porta 80 do seu servidor, obterá sua página web corretamente
 
 ```http
-http://alo-api.alofans.com.br/
+http://YOUR_DOMAIN.COM
 ```
 
 ## Passo 5: SSL e HTTPS
