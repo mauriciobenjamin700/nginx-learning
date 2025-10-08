@@ -563,6 +563,74 @@ location /websocket/ {
 }
 ```
 
+#### 5. Certbot não  reconhece o nginx
+
+Você instalou o `certbot` com:
+
+```bash
+apt install certbot
+```
+
+Isso instala apenas o **núcleo** do Certbot, mas **não inclui os plugins** (como os de integração com Nginx ou Apache).
+Por isso, ao rodar:
+
+```bash
+certbot --nginx
+```
+
+ele responde:
+
+```
+The requested nginx plugin does not appear to be installed
+```
+
+---
+
+### 🛠️ Como corrigir
+
+Você só precisa instalar o plugin do Nginx com o comando:
+
+```bash
+apt install python3-certbot-nginx
+```
+
+Depois disso, confirme a instalação:
+
+```bash
+certbot plugins
+```
+
+Deve aparecer algo como:
+
+```
+* nginx
+Description: Nginx Web Server plugin
+```
+
+E então o comando completo deve funcionar normalmente:
+
+```bash
+certbot --nginx -d SEU_DOMINIO -m SEU_EMAIL --agree-tos --no-eff-email --redirect
+```
+
+---
+
+### ⚙️ Dica extra
+
+Se quiser que o Certbot renove automaticamente seus certificados (ele já cria um `systemd timer`), confirme com:
+
+```bash
+systemctl list-timers | grep certbot
+```
+
+E pode testar a renovação manualmente:
+
+```bash
+certbot renew --dry-run
+```
+
+---
+
 ### Comandos de Debug
 
 ```bash
